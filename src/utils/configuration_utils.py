@@ -1,30 +1,12 @@
 
 from src.configurations.static import xpaths, link_labels
 from src.utils.constants import CODE_CONFIGURATION
+from src.utils.common_utils import read_json_file, write_json_file
 import os
-import json
 
 
 DATA_JSON_NAME = "dynamic.json"
 DATA_JSON_PATH = os.path.join(CODE_CONFIGURATION, DATA_JSON_NAME)
-
-
-def read_json_file(path):
-    data = {}
-    try:
-        if os.path.exists(path):
-            with open(path, 'r') as file:
-                data = json.load(file)
-    except Exception as e:
-        print(e)
-        print("No data found")
-    return data
-
-
-def write_json_file(path, data):
-    with open(path, 'w') as file:
-        json.dump(data, file)
-    print('New configurations saved successfully')
 
 
 def sync_static_configuration():
