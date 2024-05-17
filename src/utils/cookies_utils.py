@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 def save_cookies(driver, filename='cookies.json'):
     """
@@ -15,12 +16,16 @@ def load_cookies(driver, filename='cookies.json'):
     """
     Load cookies from a JSON file and add them to the browser session.
     """
+    print('Loading cookies...')
     if os.path.exists(filename):
         with open(filename, 'r') as file:
             cookies = json.load(file)
 
+        print('Loading previous session...')
         for cookie in cookies:
+            print(cookie)
             driver.add_cookie(cookie)
+        time.sleep(1)
         driver.refresh()
         print('Previous session loaded')
     else:
