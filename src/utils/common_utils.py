@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import json
+import os
 
 
 def wait_until(condition, timeout=IMPLICIT_ELEMENT_WAIT_DELAY, interval=0.5):
