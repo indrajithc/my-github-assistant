@@ -6,6 +6,7 @@ from src.utils.cookies_utils import load_cookies
 from src.utils.constants import SESSION_USER_XPATH
 from src.utils.constants import GITHUB_HOME_URL
 import time
+import os
 
 
 def check_logged_in(driver):
@@ -27,7 +28,7 @@ def login_github(driver, credentials):
     Log in to GitHub using the provided driver and credentials.
     """
     driver.get(GITHUB_HOME_URL)
-    
+
     print("============================== LOGIN ==============================")
     time.sleep(2)
 
@@ -38,11 +39,11 @@ def login_github(driver, credentials):
         print("No cookies found")
 
     time.sleep(1)
-    
+
     driver.get(GITHUB_HOME_URL)
 
     is_not_logged_in = driver.find_elements(By.LINK_TEXT, 'Sign in')
-    
+
     print("is_not_logged_in: ", is_not_logged_in)
 
     if is_not_logged_in:
@@ -72,4 +73,5 @@ def login_github(driver, credentials):
 
     if driver.find_elements(By.XPATH, SESSION_USER_XPATH):
         print("Successfully logged in to GitHub.")
-        save_cookies(driver)
+        if os.getenv('PRESERVE_COOKIES'):
+            save_cookies(driver)
