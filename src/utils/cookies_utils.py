@@ -1,8 +1,11 @@
 import json
 import os
 import time
+from src.utils.constants import CACHE_PATH
 
-def save_cookies(driver, filename='cookies.json'):
+default_filename = os.path.join(CACHE_PATH, 'cookies.json')
+
+def save_cookies(driver, filename= default_filename):
     """
     Save browser cookies to a JSON file.
     """
@@ -12,7 +15,7 @@ def save_cookies(driver, filename='cookies.json'):
         json.dump(cookies, file)
     print('New cookies saved successfully')
 
-def load_cookies(driver, filename='cookies.json'):
+def load_cookies(driver, filename= default_filename):
     """
     Load cookies from a JSON file and add them to the browser session.
     """
