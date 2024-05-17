@@ -1,5 +1,4 @@
 import os
-import getpass
 from src.auth import login_github
 from src.utils.selenium_utils import get_selenium_driver
 from src.github_manager import main_action
