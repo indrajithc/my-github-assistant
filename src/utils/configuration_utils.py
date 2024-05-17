@@ -1,12 +1,7 @@
 
 from src.configurations.static import xpaths, link_labels
-from src.utils.constants import CODE_CONFIGURATION
 from src.utils.common_utils import read_json_file, write_json_file
-import os
-
-
-DATA_JSON_NAME = "dynamic.json"
-DATA_JSON_PATH = os.path.join(CODE_CONFIGURATION, DATA_JSON_NAME)
+from src.utils.constants import DATA_JSON_PATH
 
 
 def sync_static_configuration():

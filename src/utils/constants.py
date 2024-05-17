@@ -3,10 +3,7 @@
 
 # WebDriver settings
 IMPLICIT_ELEMENT_WAIT_DELAY = 10
-SESSION_USER_XPATH = "//*[@aria-label='Open user account menu']"
 GITHUB_HOME_URL = "https://github.com"
 CACHE_PATH = "./.cache/"
-
-link_labels = {
- "YOUR_PROFILE": "Your profile"
-}
+CODE_CONFIGURATION = "src/configurations"
+DATA_JSON_PATH = CACHE_PATH + "dynamic.json"
