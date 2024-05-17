@@ -1,10 +1,9 @@
 from src.auth import login_github
 from src.utils.credentials import get_github_credentials
 from src.utils.common_utils import wait_until_element_present
-from src.utils.constants import SESSION_USER_XPATH
 from selenium.webdriver.common.by import By
 from src.utils.common_utils import wait_until
-from src.utils.constants import link_labels
+from src.configurations.read import read_label, read_xpath
 
 
 def open_user_account_menu(driver):
@@ -12,10 +11,10 @@ def open_user_account_menu(driver):
     Open user account menu.
     """
     print("Opening user account menu...")
-    driver.find_element(By.XPATH, SESSION_USER_XPATH).click()
+    driver.find_element(By.XPATH, read_xpath("SESSION_USER_XPATH")).click()
 
     def check_element():
-        if wait_until_element_present(driver, (By.XPATH, SESSION_USER_XPATH)):
+        if wait_until_element_present(driver, (By.XPATH, read_xpath("SESSION_USER_XPATH"))):
             return True
         else:
             return False
@@ -48,7 +47,7 @@ def open_user_profile(driver):
 
     open_user_account_menu(driver)
 
-    click_element_by_text(driver, link_labels["YOUR_PROFILE"])
+    click_element_by_text(driver, read_label("YOUR_PROFILE"))
 
 
 def main_action(driver):

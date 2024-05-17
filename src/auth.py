@@ -3,8 +3,9 @@ from src.utils.common_utils import wait_until_element_present
 from src.utils.common_utils import wait_until
 from src.utils.cookies_utils import save_cookies
 from src.utils.cookies_utils import load_cookies
-from src.utils.constants import SESSION_USER_XPATH
+
 from src.utils.constants import GITHUB_HOME_URL
+from src.configurations.read import read_xpath
 import time
 import os
 
@@ -12,7 +13,8 @@ import os
 def check_logged_in(driver):
     print("Checking if logged in...")
     try:
-        element = driver.find_element(By.XPATH, SESSION_USER_XPATH)
+        element = driver.find_element(
+            By.XPATH, read_xpath("SESSION_USER_XPATH"))
         if element:
             print("Element found")
             return True
@@ -71,7 +73,7 @@ def login_github(driver, credentials):
             print("Failed to log in to GitHub.")
             wait_until(callback_check_logged_in, 360)
 
-    if driver.find_elements(By.XPATH, SESSION_USER_XPATH):
+    if driver.find_elements(By.XPATH, read_xpath("SESSION_USER_XPATH")):
         print("Successfully logged in to GitHub.")
         if os.getenv('PRESERVE_COOKIES'):
             save_cookies(driver)
