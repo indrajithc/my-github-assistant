@@ -132,3 +132,6 @@ dmypy.json
 
 # Selenium specific
 geckodriver.log
+
+# local cache
+.cache/
