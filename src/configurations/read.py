@@ -9,7 +9,5 @@ def read_label(label_key):
 
 def read_xpath(xpath_key):
     dynamic_configurations = read_json_file(DATA_JSON_PATH)
-    print(dynamic_configurations)
     xpath = dynamic_configurations.get("xpaths", {}).get(xpath_key, None)
-    print(xpath)
     return xpath
