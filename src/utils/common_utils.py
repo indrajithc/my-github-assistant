@@ -2,6 +2,7 @@ from src.utils.constants import IMPLICIT_ELEMENT_WAIT_DELAY
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
 def wait_until(condition, timeout=IMPLICIT_ELEMENT_WAIT_DELAY, interval=0.5):
     """Wait until the condition is true or timeout."""
