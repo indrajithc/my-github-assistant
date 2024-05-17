@@ -1,5 +1,7 @@
 import os
 import getpass
+import yaml
+from dotenv import load_dotenv
 from src.auth import login_github
 from src.utils.selenium_utils import get_selenium_driver
 
@@ -10,7 +12,8 @@ class Credentials:
 
 def get_github_credentials():
     """
-    Read GitHub username from environment variable and prompt user for password.
+    Read GitHub username and password from config.yaml file.
+    If not found, prompt user for password.
     """
     username = os.getenv('GITHUB_USERNAME')
     password = os.getenv('GITHUB_PASSWORD')
@@ -27,6 +30,9 @@ def get_github_credentials():
     return Credentials(username, password)
 
 def main():
+    # Load environment variables from .env file
+    load_dotenv()
+
     # Get GitHub credentials
     github_credentials = get_github_credentials()
     
