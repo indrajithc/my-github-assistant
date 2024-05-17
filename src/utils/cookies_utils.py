@@ -26,7 +26,6 @@ def load_cookies(driver, filename= default_filename):
 
         print('Loading previous session...')
         for cookie in cookies:
-            print(cookie)
             driver.add_cookie(cookie)
         time.sleep(1)
         driver.refresh()
