@@ -1,6 +1,6 @@
 link_labels = {
     "YOUR_PROFILE": "Your profile",
-    "FOLLOWERS": "followers",
+    "FOLLOWER": "follower",
     "FOLLOWING": "following",
 }
 xpaths = {

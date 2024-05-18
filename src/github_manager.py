@@ -84,7 +84,7 @@ def load_all_followers(driver):
 
     if item_person:
         def check_element():
-            if wait_until_element_present(driver, (By.PARTIAL_LINK_TEXT, read_label("FOLLOWERS"))):
+            if wait_until_element_present(driver, (By.PARTIAL_LINK_TEXT, read_label("FOLLOWER"))):
                 return True
             else:
                 return False
@@ -92,7 +92,7 @@ def load_all_followers(driver):
         wait_until(check_element, 360)
 
         element = item_person.find_element(
-            By.PARTIAL_LINK_TEXT, read_label("FOLLOWERS"))
+            By.PARTIAL_LINK_TEXT, read_label("FOLLOWER"))
         if element:
             print("Element found")
             element.click()
