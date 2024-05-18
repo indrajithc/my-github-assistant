@@ -124,6 +124,16 @@ def get_followers_container(driver):
     return element
 
 
+def process_each_follower(follower, handler):
+    """
+    Process each follower.
+    """
+    print("Processing each follower...")
+    data = {}
+    data['name'] = follower.text
+    handler(data)
+
+
 def sync_followers_list(driver):
     """
     Sync followers list.
@@ -132,13 +142,16 @@ def sync_followers_list(driver):
 
     followers_container = get_followers_container(driver)
 
+    def handler(data):
+        print(data)
+
     if followers_container:
-        item_container = followers_container.find_element(
+        item_container = followers_container.find_elements(
             By.XPATH, read_xpath("FOLDER_LIST_CONTAINER"))
         if item_container:
             print("Item container found")
             for each_item in item_container:
-                print(each_item.text)
+                process_each_follower(each_item, handler)
         else:
             print("Item container not found")
             return None
