@@ -7,3 +7,6 @@ xpaths = {
     "SESSION_USER_XPATH": "//*[@aria-label='Open user account menu']",
     "PERSON_XPATH": "//*[@itemtype='http://schema.org/Person']"
 }
+ids = {
+    "USER_PROFILE_FRAME": "user-profile-frame"
+}
